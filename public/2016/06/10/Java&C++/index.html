@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,C++,内存分配,创建对象," />
 
 
 
@@ -84,15 +84,31 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Amor">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="浅谈Java与C++中的内存管理
+摘要：本文从内存管理的角度探讨了Java和C++这两种最流行的面向对象语言的特点，针对对象的创建与释放操作分析比较这两种语言在内存管理上的异同。
+关键字：Java；C++；内存分配；创建对象
+
+0.内存管理概述内存管理一直是程序设计领域永恒的话题，它对于一个程序的性能来说至关重要。对于Java和C++这两种目前最流行的编程语言来说，二者在内存管理方面有着截然不同的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈Java与C++中的内存管理">
+<meta property="og:url" content="http://yoursite.com/2016/06/10/Java&C++/index.html">
 <meta property="og:site_name" content="Amor">
-<meta property="og:description">
+<meta property="og:description" content="浅谈Java与C++中的内存管理
+摘要：本文从内存管理的角度探讨了Java和C++这两种最流行的面向对象语言的特点，针对对象的创建与释放操作分析比较这两种语言在内存管理上的异同。
+关键字：Java；C++；内存分配；创建对象
+
+0.内存管理概述内存管理一直是程序设计领域永恒的话题，它对于一个程序的性能来说至关重要。对于Java和C++这两种目前最流行的编程语言来说，二者在内存管理方面有着截然不同的">
+<meta property="og:image" content="http://o8jylft4f.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160610190335.png">
+<meta property="og:image" content="http://o8jylft4f.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160610190407.png">
+<meta property="og:updated_time" content="2016-06-10T12:04:03.873Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Amor">
-<meta name="twitter:description">
+<meta name="twitter:title" content="浅谈Java与C++中的内存管理">
+<meta name="twitter:description" content="浅谈Java与C++中的内存管理
+摘要：本文从内存管理的角度探讨了Java和C++这两种最流行的面向对象语言的特点，针对对象的创建与释放操作分析比较这两种语言在内存管理上的异同。
+关键字：Java；C++；内存分配；创建对象
+
+0.内存管理概述内存管理一直是程序设计领域永恒的话题，它对于一个程序的性能来说至关重要。对于Java和C++这两种目前最流行的编程语言来说，二者在内存管理方面有着截然不同的">
+<meta name="twitter:image" content="http://o8jylft4f.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160610190335.png">
 
 
 
@@ -113,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/06/10/Java&C++/"/>
 
-  <title> Amor </title>
+  <title> 浅谈Java与C++中的内存管理 | Amor </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -215,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -237,10 +251,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/06/10/Java&C++/" itemprop="url">
-                  浅谈Java与C++中的内存管理
-                </a>
+                浅谈Java与C++中的内存管理
               
             
           </h1>
@@ -280,9 +291,7 @@
       
 
       
-        
-          
-            <h1 id="浅谈Java与C-中的内存管理"><a href="#浅谈Java与C-中的内存管理" class="headerlink" title="浅谈Java与C++中的内存管理"></a>浅谈Java与C++中的内存管理</h1><blockquote>
+        <h1 id="浅谈Java与C-中的内存管理"><a href="#浅谈Java与C-中的内存管理" class="headerlink" title="浅谈Java与C++中的内存管理"></a>浅谈Java与C++中的内存管理</h1><blockquote>
 <p>摘要：本文从内存管理的角度探讨了Java和C++这两种最流行的面向对象语言的特点，针对对象的创建与释放操作分析比较这两种语言在内存管理上的异同。</p>
 <p>关键字：Java；C++；内存分配；创建对象</p>
 </blockquote>
@@ -320,138 +329,64 @@
 <li>4.周志明. 深入理解Java虚拟机:JVM高级特性与最佳实践(第2版)[M]. 机械工业出版社 . 2011</li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/09/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-09T21:13:23+08:00" content="2016-06-09">
-              2016-06-09
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Java/" rel="tag">#Java</a>
           
-            
+            <a href="/tags/C/" rel="tag">#C++</a>
           
-
+            <a href="/tags/内存分配/" rel="tag">#内存分配</a>
           
-
-          
-          
-
+            <a href="/tags/创建对象/" rel="tag">#创建对象</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/09/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -459,6 +394,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -478,8 +417,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -522,6 +470,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浅谈Java与C-中的内存管理"><span class="nav-number">1.</span> <span class="nav-text">浅谈Java与C++中的内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-内存管理概述"><span class="nav-number">1.1.</span> <span class="nav-text">0.内存管理概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-内存分配区域"><span class="nav-number">1.2.</span> <span class="nav-text">1.内存分配区域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-对象的创建"><span class="nav-number">1.3.</span> <span class="nav-text">2.对象的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-在C-中创建对象"><span class="nav-number">1.3.1.</span> <span class="nav-text">2.1 在C++中创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-在Java中创建对象"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.2 在Java中创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-对比"><span class="nav-number">1.3.3.</span> <span class="nav-text">2.3 对比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-对象的释放"><span class="nav-number">1.4.</span> <span class="nav-text">3.对象的释放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-释放C-中的对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">3.1 释放C++中的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-释放Java中的对象"><span class="nav-number">1.4.2.</span> <span class="nav-text">3.2    释放Java中的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-对比"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.3 对比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-总结"><span class="nav-number">1.5.</span> <span class="nav-text">4.总结</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -618,6 +577,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
