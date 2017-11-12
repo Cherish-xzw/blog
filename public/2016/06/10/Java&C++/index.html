@@ -100,7 +100,7 @@
 0.内存管理概述内存管理一直是程序设计领域永恒的话题，它对于一个程序的性能来说至关重要。对于Java和C++这两种目前最流行的编程语言来说，二者在内存管理方面有着截然不同的">
 <meta property="og:image" content="http://o8jylft4f.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160610190335.png">
 <meta property="og:image" content="http://o8jylft4f.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160610190407.png">
-<meta property="og:updated_time" content="2016-06-10T12:04:03.873Z">
+<meta property="og:updated_time" content="2016-06-10T12:20:05.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Java与C++中的内存管理">
 <meta name="twitter:description" content="浅谈Java与C++中的内存管理
@@ -308,7 +308,7 @@
 <h3 id="2-2-在Java中创建对象"><a href="#2-2-在Java中创建对象" class="headerlink" title="2.2 在Java中创建对象"></a>2.2 在Java中创建对象</h3><p>在Java语言中，创建对象的命令写作：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person pc = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure></p>
 <p>当然，这里包括着两项操作：创建对象，建立pc与该对象的关联关系。这两项操作也可以分开写在两行：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person pc;</span><br><span class="line">pc = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure></p>
 <p>通常，以上代码出现在某一个方法体内，那么“Person pc”这一部分的语义将会反映到Java栈的本地变量表中，作为一个引用数据类型（reference）出现。而“new Person()”这部分的语义将会反映到Java堆中，形成一块存储了一个Person实例的各项数据的结构化内存。而代码当中的“=”就是建立本地变量pc对Java堆中那个实例的关联关系，在此之后，pc是该实例的引用。</p>
-<h3 id="2-3-对比"><a href="#2-3-对比" class="headerlink" title="2.3 对比"></a>2.3 对比</h3><p>不难看出，在C++中，对象有可能在全局区、栈区和堆区分配内存，当然这与创建对象的写法及代码写在什么位置有关。全局区对应着全局对象或者局部静态对象，栈区对应着局部对象，堆区对应用new申请的对象。在Java中，类的实例(即对象)必须在Java堆中安排内存，方法体内的变量只是相应实例的引用。可见，对创建及管理对象的环节，Java比C++简单很多。</p>
+<h3 id="2-3-对比"><a href="#2-3-对比" class="headerlink" title="2.3 对比"></a>2.3 对比</h3><p>不难看出，在C++中，对象有可能在全局区、栈区和堆区分配内存，当然这<br>与创建对象的写法及代码写在什么位置有关。全局区对应着全局对象或者局部静态对象，栈区对应着局部对象，堆区对应用new申请的对象。在Java中，类的实例(即对象)必须在Java堆中安排内存，方法体内的变量只是相应实例的引用。可见，对创建及管理对象的环节，Java比C++简单很多。</p>
 <h2 id="3-对象的释放"><a href="#3-对象的释放" class="headerlink" title="3.对象的释放"></a>3.对象的释放</h2><p>为了充分利用内存，所有无用的对象都应该被释放，空出的内存可以供新的对象使用。C++和Java基于不同的出发点对回收内存采用了完全不同的方式。</p>
 <h3 id="3-1-释放C-中的对象"><a href="#3-1-释放C-中的对象" class="headerlink" title="3.1 释放C++中的对象"></a>3.1 释放C++中的对象</h3><p>在C++中，根据对象创建的方式不同，采取相应的方式在销毁对象时收回内存。对于全局区中的对象，包括全局对象和静态局部对象，在程序运行结束后由系统进行处理；对于栈中的局部对象，在其相应的代码执行完毕时由系统处理；对于堆中的对象，在程序运行过程中执行delete语句时进行销毁。由于释放对象之前总是会调用析构函数，因此可以通过在析构函数中输出若干信息来查看对象何时被销毁。为此，可以为前述Person类编写如下的析构函数：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~Person()&#123;<span class="built_in">cout</span>&lt;&lt;name&lt;&lt;<span class="string">" is deleted.\n"</span>;&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>从以下代码的运行结果可以分析各个对象在何时销毁：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Person <span class="title">a</span><span class="params">(<span class="number">20</span>,<span class="string">"Tom"</span>)</span></span>;				<span class="comment">//全局对象，在全局区安排</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="function">Person <span class="title">b</span><span class="params">(<span class="number">21</span>,<span class="string">"Jerry"</span>)</span></span>;		<span class="comment">//局部对象，在栈中安排</span></span><br><span class="line">	Person *q;</span><br><span class="line">	q=<span class="keyword">new</span> Person(<span class="number">22</span>,<span class="string">"Peter"</span>);	<span class="comment">//在堆中申请</span></span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"==========\n"</span>;</span><br><span class="line">	<span class="keyword">delete</span> q;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -360,20 +360,6 @@
         </div>
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/06/09/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -438,7 +424,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -496,7 +482,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
